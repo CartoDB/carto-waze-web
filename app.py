@@ -78,6 +78,7 @@ def index():
 
                 flash("Data has been saved in CARTO ({table_name})".format(table_name=table_name), "success")
     else:
-        flash(form.errors, "error")
+        if form.errors:
+            flash(form.errors, "error")
 
     return render_template("index.html", form=form)
