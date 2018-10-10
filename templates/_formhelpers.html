@@ -1,0 +1,8 @@
+{% macro render_field(field) %}
+  {{ field.label(class_="is-caption") }}
+  {% if field.errors %}
+    {{ field(class_="input error") }}
+  {% else %}
+    {{ field(class_="input") }}
+  {% endif %}
+{% endmacro %}
