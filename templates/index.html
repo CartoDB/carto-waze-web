@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Waze Cloud Data Processor</title>
+  <title>Waze WARP &ndash; CARTO Connector</title>
   <link href="https://unpkg.com/hangar-alpha@0.1.25/dist/css/hangaralpha.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -43,7 +43,7 @@
   </style>
 </head>
 <body>
-  <h1 class="title is-title">Waze Cloud Data Processor</h1>
+  <h1 class="title is-title">Waze WARP &ndash; CARTO Connector</h1>
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       <div class="container-grid container--0-12">
@@ -55,12 +55,6 @@
   {% endwith %}
   <form method="POST" action="/">
     {{ form.csrf_token }}
-    <div class="container-grid container--3-9">
-      <div class="box-grid">
-        {{ form.incident_type(class_="button is-jadeOutline") }}
-      </div>
-      <div class="box-grid"></div>
-    </div>
     <div class="container-grid container--3x4">
       <div class="box-grid form-block is-bgCartoRed">
         <h2 class="title is-caption">Cloud Database</h2>
@@ -76,6 +70,7 @@
       </div>
       <div class="box-grid form-block is-bgNavyBlue">
         <h2 class="title is-caption">Data filters</h2>
+        {{ render_field(form.incident_type) }}
         {{ render_field(form.from_timestamp) }}
         {{ render_field(form.to_timestamp) }}
       </div>
